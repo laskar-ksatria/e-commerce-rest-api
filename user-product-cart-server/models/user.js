@@ -44,7 +44,8 @@ const userSchema = new mongoose.Schema ({
     ],
         required: [true, 'Email Cannot be Empty']
     },
-    password: {type: String, required: [true, 'Password Cannot be Empty']}
+    password: {type: String, required: [true, 'Password Cannot be Empty']},
+    balanced: {type: Number, default: 0}
 
 
 },{versionKey: false})

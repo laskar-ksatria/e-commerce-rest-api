@@ -40,7 +40,16 @@ class UserController {
                 }
             })
             .catch(next)
-    }
+    };
+
+    static updateBalance (req,res,next) {
+        let userId = req.decoded.id
+        User.updateOne({_id: userId}, {balanced: req.body.balanced}, {new:true})
+            .then(function (user) {
+                res.status(202).json({message: `Your balanced now Rp.${user.balanced}`})
+            })
+            .catch(next)
+    };
 
 };
 
